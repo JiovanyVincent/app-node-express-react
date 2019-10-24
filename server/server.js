@@ -4,6 +4,15 @@ const mysql = require('mysql');
 const app = express();
 
 app.get('/', (req,res) =>{
+    const connection = mysql.createConnection({
+        host: 'localhost',
+        database: 'test_user',
+        user: 'root',
+        password: 'password'
+    });
+
+    connection.connect();
+
     res.send('Hello ExpressJS');
 });
 
